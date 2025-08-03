@@ -18,8 +18,8 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 
 echo "CLONING DOTFILES..."
 cd
-git clone https://github.com/Peppereli/dotfiles-deb
-cd ~/dotfiles-deb
+git clone https://github.com/Peppereli/dotfiles-void
+cd ~/dotfiles-void
 
 echo "COPYING DOTFILES..."
 mkdir -p ~/.config
@@ -31,7 +31,7 @@ chmod +x ~/.config/sway/exit.sh
 chmod +x ~/.config/sway/audio.sh
 cd
 echo "CLEANING DOTFILES CLONE..."
-rm -rf ~/dotfiles-deb
+rm -rf ~/dotfiles-void
 
 echo "CLONING FONTS..."
 git clone https://github.com/Peppereli/fonts
