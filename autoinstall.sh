@@ -3,7 +3,7 @@ echo "UPDATING REPOSITORIES..."
 sudo xbps-install -Syu
 
 echo "ADDING NON-FREE REPOSITORIES..."
-sudo xbps-install -S void-repo-nonfree void-repo-multilib-nonfree
+sudo xbps-install -S void-repo-nonfree void-repo-multilib-nonfree void-repo-multilib
 sudo xbps-install -Syu
 
 echo "INSTALLING PACKAGES..."
