@@ -7,7 +7,7 @@ sudo xbps-install -S void-repo-nonfree void-repo-multilib-nonfree
 sudo xbps-install -Syu
 
 echo "INSTALLING PACKAGES..."
-sudo xbps-install -S sway swaylock swayidle swaybg swayimg alacritty Waybar wofi font-awesome fastfetch rofi curl libreoffice ModemManager NetworkManager network-manager-applet iwd bleachbit pavucontrol gvfs gvfs-mtp nwg-look dunst xfce-polkit btop gcc zsh sxiv zip unzip 7zip tar Thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman tumbler ffmpegthumbnailer mpv xarchiver geany cmus upower qbittorrent grim slurp neovim pipewire wireplumber xorg-server-xwayland xdg-desktop-portal-wlr zathura zathura-cb zathura-pdf-poppler noto-fonts-ttf noto-fonts-emoji elogind polkit-elogind dbus-elogind acpilight xorg-font alsa-pipewire libjack-pipewire rtkit steam unrar
+sudo xbps-install -S sway swaylock swayidle swaybg alacritty Waybar wmenu font-awesome fastfetch rofi curl libreoffice NetworkManager network-manager-applet iwd bleachbit pavucontrol gvfs gvfs-mtp nwg-look dunst xfce-polkit btop gcc zsh sxiv zip unzip 7zip tar Thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman tumbler ffmpegthumbnailer mpv xarchiver geany cmus upower qbittorrent grim slurp neovim xorg-server-xwayland xdg-desktop-portal-wlr zathura zathura-cb zathura-pdf-poppler noto-fonts-ttf noto-fonts-emoji elogind polkit steam unrar light mesa pulseaudio pulseaudio-utils
 
 #sudo xbps-install -S pam-devel xcb-util-xrm libxcb-devel
 
