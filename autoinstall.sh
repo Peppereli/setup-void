@@ -7,24 +7,24 @@ sudo xbps-install -S void-repo-nonfree void-repo-multilib-nonfree
 sudo xbps-install -Syu
 
 echo "INSTALLING PACKAGES..."
-sudo xbps-install -S sway swaylock swayidle swaybg swayimg alacritty waybar wofi font-awesome fastfetch rofi curl libreoffice ModemManager NetworkManager network-manager-applet iwd bleachbit pavucontrol gvfs gvfs-mtp nwg-look dunst xfce-polkit btop gcc zsh sxiv zip unzip 7z tar Thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman tumbler ffmpegthumbnailer mpv xarchiver flatpak geany cmus upower qbittorrent grim slurp neovim pipewire wireplumber xorg-server-xwayland xdg-desktop-portal-wlr zathura zathura-cb zathura-pdf-poppler noto-fonts-ttf noto-fonts-tff-variable noto-fonts-emoji elogind polkit-elogind dbus-elogind acpilight xorg-fonts pipewire-pulse alsa-pipewire libjack-pipewire rtkit steam rar unrar
+sudo xbps-install -S sway swaylock swayidle swaybg swayimg alacritty Waybar wofi font-awesome fastfetch rofi curl libreoffice ModemManager NetworkManager network-manager-applet iwd bleachbit pavucontrol gvfs gvfs-mtp nwg-look dunst xfce-polkit btop gcc zsh sxiv zip unzip 7zip tar Thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman tumbler ffmpegthumbnailer mpv xarchiver geany cmus upower qbittorrent grim slurp neovim pipewire wireplumber xorg-server-xwayland xdg-desktop-portal-wlr zathura zathura-cb zathura-pdf-poppler noto-fonts-ttf noto-fonts-emoji elogind polkit-elogind dbus-elogind acpilight xorg-font alsa-pipewire libjack-pipewire rtkit steam unrar
 
 #sudo xbps-install -S pam-devel xcb-util-xrm libxcb-devel
 
-echo "ADDING FLATHUB REPOSITORY"
-flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+#echo "ADDING FLATHUB REPOSITORY"
+#flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
 echo "CLONING DOTFILES..."
 cd
-git clone https://github.com/Peppereli/dotfiles-void
-cd ~/dotfiles-void
+git clone https://github.com/Peppereli/dotfiles-deb
+cd ~/dotfiles-deb
 
 echo "COPYING DOTFILES..."
 mkdir -p ~/.config
 cp -rf config/* ~/.config/
 cp .gtkrc-2.0 ~/
 cp .Xresources ~/
-cp .zshrc ~/
+cp .zshrc ~/zshrc
 chmod +x ~/.config/sway/exit.sh
 chmod +x ~/.config/sway/audio.sh
 cd
@@ -140,7 +140,7 @@ echo "ENABLING NEEDED SERVICES..."
 sudo ln -s /etc/sv/elogind /var/service
 sudo ln -s /etc/sv/dbus /var/service
 sudo ln -s /etc/sv/NetworkManager /var/service
-sudo ln -s /etc/sv/iwd /var/services
+sudo ln -s /etc/sv/iwd /var/service
 
 sudo xbps-remove -R foot xterm
 
