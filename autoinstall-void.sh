@@ -142,6 +142,6 @@ sudo ln -s /etc/sv/dbus /var/service
 sudo ln -s /etc/sv/NetworkManager /var/service
 sudo ln -s /etc/sv/iwd /var/services
 
-sudo xbps-remove -Rf foot wmenu xterm
+sudo xbps-remove -Rf foot xterm
 
 echo "INSTALLATION FINISHED! TIME TO REBOOT. RUN 'sudo reboot'."
