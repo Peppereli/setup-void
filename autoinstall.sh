@@ -135,9 +135,6 @@ xdg-mime default nvim.desktop text/x-log
 sudo ln -s /etc/sv/elogind /var/service
 sudo ln -s /etc/sv/dbus /var/service
 
-echo "ADDING FLATHUB REPOSITORY"
-flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-
 cd
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
