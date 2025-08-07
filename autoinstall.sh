@@ -7,12 +7,12 @@ sudo xbps-install -S void-repo-nonfree void-repo-multilib-nonfree void-repo-mult
 sudo xbps-install -Syu
 
 echo "INSTALLING PACKAGES..."
-sudo xbps-install -S sway swaylock swayidle swaybg alacritty Waybar wmenu font-awesome fastfetch rofi curl libreoffice NetworkManager network-manager-applet iwd bleachbit pavucontrol gvfs gvfs-mtp nwg-look dunst polkit-gnome btop gcc zsh sxiv zip unzip 7zip tar Thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman tumbler ffmpegthumbnailer mpv xarchiver geany cmus upower qbittorrent grim slurp neovim xorg-server-xwayland xdg-desktop-portal-wlr zathura zathura-cb zathura-pdf-poppler noto-fonts-ttf noto-fonts-emoji elogind dbus polkit steam unrar light mesa pulseaudio pulseaudio-utils libgcc-32bit libstdc++-32bit libdrm-32bit libglvnd-32bit
+sudo xbps-install -S sway swaylock swayidle swaybg alacritty Waybar wmenu font-awesome fastfetch rofi curl libreoffice flatpak NetworkManager network-manager-applet iwd bleachbit pavucontrol gvfs gvfs-mtp nwg-look dunst polkit-gnome btop gcc zsh sxiv zip unzip 7zip tar Thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman tumbler ffmpegthumbnailer mpv xarchiver geany cmus upower qbittorrent grim slurp neovim xorg-server-xwayland xdg-desktop-portal-wlr zathura zathura-cb zathura-pdf-poppler noto-fonts-ttf noto-fonts-emoji elogind dbus polkit steam unrar light mesa pulseaudio pulseaudio-utils libgcc-32bit libstdc++-32bit libdrm-32bit libglvnd-32bit
 
 #sudo xbps-install -S pam-devel xcb-util-xrm libxcb-devel
 
-#echo "ADDING FLATHUB REPOSITORY"
-#flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+echo "ADDING FLATHUB REPOSITORY"
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
 echo "CLONING DOTFILES..."
 cd
