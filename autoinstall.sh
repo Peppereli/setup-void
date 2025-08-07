@@ -12,6 +12,7 @@ sudo xbps-install -S sway swaylock swayidle swaybg alacritty Waybar wmenu font-a
 #sudo xbps-install -S pam-devel xcb-util-xrm libxcb-devel
 echo "CLONING DOTFILES..."
 cd
+mkdir -p ~/Pictures
 git clone https://github.com/Peppereli/dotfiles-void
 cd ~/dotfiles-void
 
