@@ -16,8 +16,8 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 
 echo "CLONING DOTFILES..."
 cd
-git clone https://github.com/Peppereli/dotfiles-deb
-cd ~/dotfiles-deb
+git clone https://github.com/Peppereli/dotfiles-void
+cd ~/dotfiles-void
 
 echo "COPYING DOTFILES..."
 mkdir -p ~/.config
@@ -25,6 +25,7 @@ cp -rf config/* ~/.config/
 cp .gtkrc-2.0 ~/
 cp .Xresources ~/
 cp .zshrc ~/zshrc
+cp .zprofile ~/
 chmod +x ~/.config/sway/exit.sh
 chmod +x ~/.config/sway/audio.sh
 cd
