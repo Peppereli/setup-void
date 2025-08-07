@@ -7,7 +7,7 @@ sudo xbps-install -S void-repo-nonfree void-repo-multilib-nonfree void-repo-mult
 sudo xbps-install -Syu
 
 echo "INSTALLING PACKAGES..."
-sudo xbps-install -S sway swaylock swayidle swaybg alacritty Waybar wmenu font-awesome fastfetch rofi curl libreoffice flatpak NetworkManager network-manager-applet iwd bleachbit pavucontrol gvfs gvfs-mtp nwg-look dunst polkit-gnome btop gcc zsh sxiv zip unzip 7zip tar Thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman tumbler ffmpegthumbnailer mpv xarchiver geany cmus upower qbittorrent grim slurp neovim xorg-server-xwayland xdg-desktop-portal-wlr zathura zathura-cb zathura-pdf-poppler noto-fonts-ttf noto-fonts-emoji elogind dbus polkit steam unrar light mesa pulseaudio pulseaudio-utils libgcc-32bit libstdc++-32bit libdrm-32bit libglvnd-32bit
+sudo xbps-install -S sway swaylock swayidle swaybg alacritty Waybar wmenu font-awesome fastfetch rofi curl libreoffice flatpak NetworkManager network-manager-applet iwd bleachbit pavucontrol gvfs gvfs-mtp nwg-look dunst polkit-gnome btop gcc zsh sxiv zip unzip 7zip tar Thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman tumbler ffmpegthumbnailer mpv xarchiver geany cmus upower qbittorrent grim slurp neovim xorg-server-xwayland xdg-desktop-portal-wlr zathura zathura-cb zathura-pdf-poppler noto-fonts-ttf noto-fonts-emoji elogind dbus polkit steam unrar light mesa pulseaudio pulseaudio-utils libgcc-32bit libstdc++-32bit libdrm-32bit libglvnd-32bit ffmpeg
 
 #sudo xbps-install -S pam-devel xcb-util-xrm libxcb-devel
 
@@ -24,6 +24,7 @@ mkdir -p ~/.config
 cp -rf config/* ~/.config/
 cp .gtkrc-2.0 ~/
 cp .Xresources ~/
+cp .zshrc ~/
 cp .zshrc ~/zshrc
 cp .zprofile ~/
 chmod +x ~/.config/sway/exit.sh
@@ -144,6 +145,9 @@ sudo ln -s /etc/sv/NetworkManager /var/service
 sudo ln -s /etc/sv/iwd /var/service
 
 sudo xbps-remove -R foot xterm
+
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
 #flatpak override --user --filesystem=~/Downloads com.brave.Browser
 
