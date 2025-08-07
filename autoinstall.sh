@@ -145,4 +145,6 @@ sudo ln -s /etc/sv/iwd /var/service
 
 sudo xbps-remove -R foot xterm
 
+#flatpak override --user --filesystem=~/Downloads com.brave.Browser
+
 echo "INSTALLATION FINISHED! TIME TO REBOOT. RUN 'sudo reboot'."
