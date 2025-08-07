@@ -45,9 +45,6 @@ fc-cache -f -v
 echo "CLEANING FONTS CLONE..."
 rm -rf ~/fonts
 
-echo "INSTALLING BRAVE BROWSER..."
-curl -fsS https://dl.brave.com/install.sh | sh
-
 echo "CLONING NVCHAD..."
 git clone -b v2.0 https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
 echo "TO INSTALL NVCHAD RUN 'nvim' AND LET IT INSTALL THE PLUGINS"
@@ -145,7 +142,7 @@ sudo ln -s /etc/sv/NetworkManager /var/service
 sudo ln -s /etc/sv/iwd /var/service
 
 sudo xbps-remove -R foot xterm
-
+cd
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
