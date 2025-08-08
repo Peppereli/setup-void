@@ -7,7 +7,7 @@ sudo xbps-install -S void-repo-nonfree void-repo-multilib-nonfree void-repo-mult
 sudo xbps-install -Syu
 
 echo "INSTALLING PACKAGES..."
-sudo xbps-install -S sway swaylock swayidle swaybg alacritty Waybar wmenu font-awesome fastfetch rofi curl libreoffice flatpak NetworkManager network-manager-applet iwd bleachbit pavucontrol gvfs gvfs-mtp nwg-look dunst polkit-gnome btop gcc sxiv zip unzip 7zip tar Thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman tumbler ffmpegthumbnailer mpv xarchiver geany cmus upower qbittorrent grim slurp neovim xorg-server-xwayland xdg-desktop-portal-wlr zathura zathura-cb zathura-pdf-poppler noto-fonts-ttf noto-fonts-emoji noto-fonts-cjk elogind dbus polkit steam unrar brillo mesa pulseaudio pulseaudio-utils libgcc-32bit libstdc++-32bit libdrm-32bit libglvnd-32bit ffmpeg yazi fzf opendoas amdvlk xf86-video-amdgpu mesa-vaapi mesa-vdpau
+sudo xbps-install -S sway swaylock swayidle swaybg alacritty Waybar font-awesome fastfetch rofi curl libreoffice flatpak NetworkManager network-manager-applet iwd bleachbit pavucontrol gvfs gvfs-mtp nwg-look dunst polkit-gnome btop gcc qimgv zip unzip 7zip tar Thunar thunar-archive-plugin thunar-media-tags-plugin thunar-volman tumbler ffmpegthumbnailer mpv xarchiver geany cmus upower qbittorrent grim slurp neovim xorg-server-xwayland xdg-desktop-portal-wlr zathura zathura-cb zathura-pdf-poppler noto-fonts-ttf noto-fonts-emoji noto-fonts-cjk elogind dbus polkit steam unrar brillo mesa pulseaudio pulseaudio-utils libgcc-32bit libstdc++-32bit libdrm-32bit libglvnd-32bit ffmpeg yazi fzf opendoas mesa-dri-32bit alsa-plugins-pulseaudio
 
 #sudo xbps-install -S pam-devel xcb-util-xrm libxcb-devel
 echo "CLONING DOTFILES..."
@@ -90,10 +90,10 @@ xdg-mime default org.pwmt.zathura.desktop application/x-cbr
 
 xdg-mime default Thunar.desktop inode/directory
 
-xdg-mime default brave-browser.desktop x-scheme-handler/http
-xdg-mime default brave-browser.desktop x-scheme-handler/https
-xdg-mime default brave-browser.desktop text/html
-xdg-mime default brave-browser.desktop application/xhtml+xml
+xdg-mime default com.brave.Browser.desktop x-scheme-handler/http
+xdg-mime default com.brave.Browser.desktop x-scheme-handler/https
+xdg-mime default com.brave.Browser.desktop text/html
+xdg-mime default com.brave.Browser.desktop application/xhtml+xml
 
 xdg-mime default mpv.desktop video/mpeg
 xdg-mime default mpv.desktop video/mp4
