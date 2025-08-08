@@ -77,12 +77,12 @@ xdg-mime default xarchiver.desktop application/x-xz
 xdg-mime default xarchiver.desktop application/x-rar
 xdg-mime default xarchiver.desktop application/x-7z-compressed
 
-xdg-mime default sxiv.desktop image/jpeg
-xdg-mime default sxiv.desktop image/png
-xdg-mime default sxiv.desktop image/gif
-xdg-mime default sxiv.desktop image/bmp
-xdg-mime default sxiv.desktop image/tiff
-xdg-mime default sxiv.desktop image/webp
+xdg-mime default qimgv.desktop image/jpeg
+xdg-mime default qimgv.desktop image/png
+xdg-mime default qimgv.desktop image/gif
+xdg-mime default qimgv.desktop image/bmp
+xdg-mime default qimgv.desktop image/tiff
+xdg-mime default qimgv.desktop image/webp
 
 xdg-mime default org.pwmt.zathura.desktop application/pdf
 xdg-mime default org.pwmt.zathura.desktop application/x-cbz
