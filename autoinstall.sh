@@ -4,18 +4,17 @@ sudo xbps-install -Syu
 
 echo "ADDING NON-FREE REPOSITORIES..."
 sudo xbps-install -S void-repo-nonfree void-repo-multilib-nonfree void-repo-multilib
+sudo echo 'repository=https://github.com/index-0/librewolf-void/releases/latest/download/' > /etc/xbps.d/20-librewolf.conf
 sudo xbps-install -Syu
-
 echo "INSTALLING PACKAGES..."
-sudo xbps-install -S sway swaylock swayidle swaybg alacritty Waybar font-awesome fastfetch rofi curl libreoffice-writer libreoffice-calc libreoffice-impress libreoffice-gnome flatpak NetworkManager network-manager-applet iwd pavucontrol gvfs gvfs-mtp nwg-look dunst polkit-gnome btop gcc qimgv zip unzip 7zip tar Thunar thunar-archive-plugin thunar-volman tumbler ffmpegthumbnailer ffmpeg mpv xarchiver geany cmus upower qbittorrent grim slurp neovim xorg-server-xwayland xdg-desktop-portal-wlr zathura zathura-cb zathura-pdf-poppler elogind dbus polkit steam unrar brillo mesa pipewire wireplumber yazi fzf opendoas mesa-dri-32bit vulkan-loader mesa-vulkan-radeon mesa-vaapi mesa-vdpau mesa-vulkan-radeon-32bit vulkan-loader-32bit groff bc yt-dlp make xhost liberation-fonts-ttf google-fonts-ttf
+sudo xbps-install -Sy sway swaylock swayidle swaybg alacritty Waybar font-awesome fastfetch rofi curl libreoffice-writer libreoffice-calc libreoffice-impress libreoffice-gnome flatpak NetworkManager network-manager-applet iwd pavucontrol gvfs gvfs-mtp nwg-look dunst polkit-gnome btop gcc qimgv zip unzip 7zip tar Thunar thunar-archive-plugin thunar-volman tumbler ffmpegthumbnailer ffmpeg mpv xarchiver geany cmus upower qbittorrent grim slurp neovim xorg-server-xwayland xdg-desktop-portal-wlr zathura zathura-cb zathura-pdf-poppler elogind dbus polkit steam unrar brillo mesa pipewire wireplumber yazi fzf opendoas mesa-dri-32bit vulkan-loader mesa-vulkan-radeon mesa-vaapi mesa-vdpau mesa-vulkan-radeon-32bit vulkan-loader-32bit groff bc yt-dlp make xhost liberation-fonts-ttf google-fonts-ttf librewolf
 
 echo "CLONING DOTFILES..."
 cd
 mkdir -p ~/Pictures
-git clone https://github.com/Peppereli/dotfiles-void
-cd ~/dotfiles-void
-mkdir -p ~/.config
-cp -rf config/* ~/.config/
+git clone https://github.com/Peppereli/dotfilesvoid
+cd ~/dotfilesvoid
+cp -rf .config ~/
 cp .gtkrc-2.0 ~/
 cp .Xresources ~/
 cp .zshrc ~/
@@ -25,7 +24,7 @@ chmod +x ~/.config/sway/exit.sh
 chmod +x ~/.config/sway/audio.sh
 cd
 echo "CLEANING DOTFILES CLONE..."
-rm -rf ~/dotfiles-void
+rm -rf ~/dotfilesvoid
 
 echo "CLONING FONTS..."
 git clone https://github.com/Peppereli/fonts
