@@ -7,7 +7,7 @@ sudo xbps-install -S void-repo-nonfree void-repo-multilib-nonfree void-repo-mult
 sudo echo 'repository=https://github.com/index-0/librewolf-void/releases/latest/download/' > /etc/xbps.d/20-librewolf.conf
 sudo xbps-install -Syu
 echo "INSTALLING PACKAGES..."
-sudo xbps-install -Sy sway swaylock swayidle swaybg alacritty Waybar fastfetch rofi curl libreoffice-writer libreoffice-calc libreoffice-impress libreoffice-gnome flatpak NetworkManager network-manager-applet iwd pavucontrol gvfs gvfs-mtp nwg-look dunst polkit-gnome btop gcc qimgv zip unzip 7zip tar Thunar thunar-archive-plugin thunar-volman tumbler ffmpegthumbnailer ffmpeg mpv xarchiver geany cmus upower qbittorrent grim slurp neovim xorg-server-xwayland xdg-desktop-portal-wlr zathura zathura-cb zathura-pdf-poppler elogind dbus polkit steam unrar brillo mesa pipewire wireplumber yazi fzf opendoas mesa-dri-32bit vulkan-loader mesa-vulkan-radeon mesa-vaapi mesa-vdpau mesa-vulkan-radeon-32bit vulkan-loader-32bit groff bc yt-dlp make liberation-fonts-ttf google-fonts-ttf librewolf
+sudo xbps-install -Sy sway swaylock swayidle swaybg alacritty Waybar fastfetch rofi curl libreoffice-writer libreoffice-calc libreoffice-impress libreoffice-gnome flatpak NetworkManager network-manager-applet iwd pavucontrol gvfs gvfs-mtp nwg-look dunst polkit-gnome btop gcc qimgv zip unzip 7zip tar Thunar thunar-archive-plugin thunar-volman tumbler ffmpegthumbnailer ffmpeg mpv xarchiver geany cmus upower qbittorrent grim slurp neovim xorg-server-xwayland xdg-desktop-portal-wlr zathura zathura-cb zathura-pdf-poppler elogind dbus polkit steam unrar brillo mesa pipewire wireplumber yazi fzf opendoas mesa-dri-32bit vulkan-loader mesa-vulkan-radeon mesa-vaapi mesa-vdpau mesa-vulkan-radeon-32bit vulkan-loader-32bit groff bc yt-dlp make xhost liberation-fonts-ttf google-fonts-ttf librewolf
 
 echo "CLONING DOTFILES..."
 cd
@@ -123,6 +123,8 @@ xdg-mime default nvim.desktop application/yaml
 xdg-mime default nvim.desktop text/yaml
 xdg-mime default nvim.desktop text/x-log
 
+sudo ln -s /etc/sv/elogind /var/service
+sudo ln -s /etc/sv/dbus /var/service
 
 sudo mkdir -p /etc/pipewire/pipewire.conf.d
 sudo ln -s /usr/share/examples/wireplumber/10-wireplumber.conf /etc/pipewire/pipewire.conf.d/
@@ -136,10 +138,8 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 echo "ENABLING NEEDED SERVICES..."
 sudo ln -s /etc/sv/NetworkManager /var/service
 sudo ln -s /etc/sv/iwd /var/service
-sudo rm /var/service/wpa_supplicant
+
 #flatpak override --user --filesystem=~/Downloads com.brave.Browser
-sudo ln -s /etc/sv/elogind /var/service
-sudo ln -s /etc/sv/dbus /var/service
 
 echo "INSTALLATION FINISHED! TIME TO REBOOT. RUN 'sudo reboot'."
 
