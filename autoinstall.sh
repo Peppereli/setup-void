@@ -22,7 +22,7 @@ cp .zshrc ~/
 cp .zshrc ~/zshrc
 cp .zprofile ~/
 chmod +x ~/.config/sway/exit.sh
-chmod +x ~/.config/sway/audio.sh
+chmod +x ~/.config/sway/x.sh
 cd
 echo "CLEANING DOTFILES CLONE..."
 rm -rf ~/dotfilesvoid
