@@ -15,6 +15,7 @@ mkdir -p ~/Pictures
 git clone https://github.com/Peppereli/dotfilesvoid
 cd ~/dotfilesvoid
 cp -rf .config ~/
+cp -rf .local ~/
 cp .gtkrc-2.0 ~/
 cp .Xresources ~/
 cp .zshrc ~/
