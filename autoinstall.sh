@@ -17,7 +17,7 @@ cd ~/dotfilesvoid
 cp -rf .config ~/
 cp -rf .local ~/
 cp .gtkrc-2.0 ~/
-cp .Xresources ~/
+cp .Xdefaults ~/
 cp .zshrc ~/
 cp .zshrc ~/zshrc
 cp .zprofile ~/
