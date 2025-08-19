@@ -22,7 +22,6 @@ cp .zshrc ~/
 cp .zshrc ~/zshrc
 cp .zprofile ~/
 chmod +x ~/.config/sway/exit.sh
-chmod +x ~/.config/sway/x.sh
 cd
 echo "CLEANING DOTFILES CLONE..."
 rm -rf ~/dotfilesvoid
@@ -68,10 +67,10 @@ xdg-mime default org.pwmt.zathura.desktop application/x-cbr
 
 xdg-mime default Thunar.desktop inode/directory
 
-xdg-mime default librewolf.desktop x-scheme-handler/http
-xdg-mime default librewolf.desktop x-scheme-handler/https
-xdg-mime default librewolf.desktop text/html
-xdg-mime default librewolf.desktop application/xhtml+xml
+xdg-mime default com.brave.Browser.desktop x-scheme-handler/http
+xdg-mime default com.brave.Browser.desktop x-scheme-handler/https
+xdg-mime default com.brave.Browser.desktop text/html
+xdg-mime default com.brave.Browser.desktop application/xhtml+xml
 
 xdg-mime default mpv.desktop video/mpeg
 xdg-mime default mpv.desktop video/mp4
