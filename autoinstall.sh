@@ -125,7 +125,8 @@ echo "ENABLING NEEDED SERVICES..."
 sudo ln -s /etc/sv/NetworkManager /var/service
 sudo ln -s /etc/sv/iwd /var/service
 
-#flatpak override --user --filesystem=~/Downloads com.brave.Browser
+#flatpak override --user --filesystem=~/ com.brave.Browser
+#flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
 echo "INSTALLATION FINISHED! TIME TO REBOOT. RUN 'sudo reboot'."
 
