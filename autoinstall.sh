@@ -42,20 +42,6 @@ echo "CLONING NVCHAD..."
 git clone https://github.com/NvChad/starter ~/.config/nvim
 echo "TO INSTALL NVCHAD RUN 'nvim' AND LET IT INSTALL THE PLUGINS"
 
-echo "CLONING GTK THEMES..."
-git clone https://github.com/Peppereli/themes
-cd ~/themes
-7z x themes.7z
-sudo cp -rf ~/themes/themes/* /usr/share/themes/
-sudo cp -rf ~/themes/icons/* /usr/share/icons/
-cd
-
-echo "UPDATING ICON CACHE..."
-gtk-update-icon-cache
-
-echo "CLEANING THEMES CLONE..."
-rm -rf ~/themes
-
 echo "CHANGING THE SHELL TO ZSH..."
 sudo chsh -s $(which zsh) $USER
 
