@@ -124,6 +124,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 echo "ENABLING NEEDED SERVICES..."
 sudo ln -s /etc/sv/NetworkManager /var/service
 sudo ln -s /etc/sv/iwd /var/service
+sudo rm /var/service/wpa_supplicant
 
 #flatpak override --user --filesystem=~/ com.brave.Browser
 #flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
