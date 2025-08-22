@@ -1,4 +1,4 @@
-
+su 
 echo "UPDATING REPOSITORIES..."
 sudo xbps-install -Syu
 
