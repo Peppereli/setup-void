@@ -117,12 +117,12 @@ sudo mkdir -p /etc/pipewire/pipewire.conf.d
 sudo ln -s /usr/share/examples/pipewire/20-pipewire-pulse.conf /etc/pipewire/pipewire.conf.d/
 
 cd
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
 
 echo "ENABLING NEEDED SERVICES..."
 sudo ln -s /etc/sv/NetworkManager /var/service
 sudo ln -s /etc/sv/iwd /var/service
 sudo rm /var/service/wpa_supplicant
+sudo rm /var/service/udevd
 
 #flatpak override --user --filesystem=~/ com.brave.Browser
 #flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
