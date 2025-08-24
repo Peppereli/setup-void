@@ -63,7 +63,8 @@ xdg-mime default org.pwmt.zathura.desktop application/pdf
 xdg-mime default org.pwmt.zathura.desktop application/x-cbz
 xdg-mime default org.pwmt.zathura.desktop application/x-cbr
 
-xdg-mime default Thunar.desktop inode/directory
+xdg-mime default thunar.desktop inode/directory
+gio mime inode/directory thunar.desktop
 
 xdg-mime default com.brave.Browser.desktop x-scheme-handler/http
 xdg-mime default com.brave.Browser.desktop x-scheme-handler/https
