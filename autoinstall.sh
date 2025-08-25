@@ -1,6 +1,3 @@
-echo "UPDATING REPOSITORIES..."
-sudo xbps-install -Syu
-
 echo "ADDING NON-FREE REPOSITORIES..."
 sudo xbps-install -S void-repo-nonfree void-repo-multilib-nonfree void-repo-multilib
 sudo xbps-install -Syu
@@ -16,14 +13,15 @@ rm -rf .git
 cp -r "." ~/
 chmod +x ~/.config/sway/exit.sh
 chmod +x ~/.config/waybar/powermenu
-cd ~
+cd
+
 echo "CLEANING DOTFILES CLONE..."
 rm -rf dotfilesvoid
 
 echo "CLONING FONTS..."
+mkdir -p ~/.local/share/fonts
 git clone https://github.com/Peppereli/fonts
-cd
-sudo cp -rf ~/fonts/* /usr/share/fonts/
+cp -rf ~/fonts/* ~/.local/share/fonts/
 
 echo "UPDATING FONT CACHE..."
 fc-cache -f -v
@@ -38,7 +36,6 @@ echo "TO INSTALL NVCHAD RUN 'nvim' AND LET IT INSTALL THE PLUGINS"
 echo "CHANGING THE SHELL TO ZSH..."
 sudo chsh -s $(which zsh) $USER
 
-
 echo "SETTING DEFAULT APPLICATIONS..."
 xdg-mime default xarchiver.desktop application/zip
 xdg-mime default xarchiver.desktop application/x-tar
@@ -47,26 +44,21 @@ xdg-mime default xarchiver.desktop application/x-bzip2
 xdg-mime default xarchiver.desktop application/x-xz
 xdg-mime default xarchiver.desktop application/x-rar
 xdg-mime default xarchiver.desktop application/x-7z-compressed
-
 xdg-mime default gthumb.desktop image/jpeg
 xdg-mime default gthumb.desktop image/png
 xdg-mime default gthumb.desktop image/gif
 xdg-mime default gthumb.desktop image/bmp
 xdg-mime default gthumb.desktop image/tiff
 xdg-mime default gthumb.desktop image/webp
-
 xdg-mime default org.pwmt.zathura.desktop application/pdf
 xdg-mime default org.pwmt.zathura.desktop application/x-cbz
 xdg-mime default org.pwmt.zathura.desktop application/x-cbr
-
 xdg-mime default thunar.desktop inode/directory
 gio mime inode/directory thunar.desktop
-
 xdg-mime default com.brave.Browser.desktop x-scheme-handler/http
 xdg-mime default com.brave.Browser.desktop x-scheme-handler/https
 xdg-mime default com.brave.Browser.desktop text/html
 xdg-mime default com.brave.Browser.desktop application/xhtml+xml
-
 xdg-mime default mpv.desktop video/mpeg
 xdg-mime default mpv.desktop video/mp4
 xdg-mime default mpv.desktop video/x-matroska
@@ -77,7 +69,6 @@ xdg-mime default mpv.desktop video/x-wmv
 xdg-mime default mpv.desktop video/webm
 xdg-mime default mpv.desktop video/3gpp
 xdg-mime default mpv.desktop video/ogg
-
 xdg-mime default mpv.desktop audio/mpeg
 xdg-mime default mpv.desktop audio/x-wav
 xdg-mime default mpv.desktop audio/ogg
@@ -88,7 +79,6 @@ xdg-mime default mpv.desktop audio/x-ms-wma
 xdg-mime default mpv.desktop audio/x-aiff
 xdg-mime default mpv.desktop audio/opus
 xdg-mime default mpv.desktop application/x-ogg
-
 xdg-mime default nvim.desktop text/plain
 xdg-mime default nvim.desktop text/markdown
 xdg-mime default nvim.desktop application/json
@@ -104,24 +94,25 @@ xdg-mime default nvim.desktop application/yaml
 xdg-mime default nvim.desktop text/yaml
 xdg-mime default nvim.desktop text/x-log
 
+echo "ENABLING NEEDED SERVICES..."
 sudo ln -s /etc/sv/elogind /var/service
 sudo ln -s /etc/sv/dbus /var/service
-
 sudo mkdir -p /etc/pipewire/pipewire.conf.d
 sudo ln -s /usr/share/examples/wireplumber/10-wireplumber.conf /etc/pipewire/pipewire.conf.d/
-sudo mkdir -p /etc/pipewire/pipewire.conf.d
 sudo ln -s /usr/share/examples/pipewire/20-pipewire-pulse.conf /etc/pipewire/pipewire.conf.d/
-
-cd
-echo "ENABLING NEEDED SERVICES..."
 sudo ln -s /etc/sv/NetworkManager /var/service
 sudo ln -s /etc/sv/iwd /var/service
 sudo rm /var/service/wpa_supplicant
 sudo rm /var/service/udevd
 
-#flatpak override --user --filesystem=~/ com.brave.Browser
-#flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+echo "REPLACING SUDO WITH DOAS AND REMOVING SUDO..."
+su -c '
+touch /etc/doas.conf
+echo "permit persist :wheel" >> /etc/doas.conf
+touch /etc/xbps.d/ignore.conf
+echo "ignorepkg=sudo" >> /etc/xbps.d/ignore.conf
+xbps-remove sudo
+'
 
-echo "INSTALLATION FINISHED! TIME TO REBOOT. RUN 'sudo reboot'."
-
-sudo reboot
+echo "INSTALLATION FINISHED! TIME TO REBOOT!"
+doas reboot
