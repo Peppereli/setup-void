@@ -12,13 +12,8 @@ cd
 mkdir -p ~/Pictures
 git clone https://github.com/Peppereli/dotfilesvoid
 cd ~/dotfilesvoid
-cp -rf .config ~/
-cp -rf .local ~/
-cp .gtkrc-2.0 ~/
-cp .Xdefaults ~/
-cp .zshrc ~/
-cp .zshrc ~/zshrc
-cp .zprofile ~/
+rm -rf .git
+cp "." ~/
 chmod +x ~/.config/sway/exit.sh
 cd
 echo "CLEANING DOTFILES CLONE..."
