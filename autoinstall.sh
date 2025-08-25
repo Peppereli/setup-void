@@ -7,6 +7,9 @@ sudo xbps-install -Sy sway swaylock swayidle swaybg alacritty Waybar fastfetch r
 echo "CLONING DOTFILES..."
 cd
 mkdir -p ~/Pictures
+mkdir -p ~/Documents
+mkdir -p ~/movi
+mkdir -p ~/Music
 git clone https://github.com/Peppereli/dotfilesvoid
 cd ~/dotfilesvoid
 rm -rf .git
