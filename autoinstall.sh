@@ -8,16 +8,17 @@ echo "INSTALLING PACKAGES..."
 sudo xbps-install -Sy sway swaylock swayidle swaybg alacritty Waybar fastfetch rofi curl flatpak NetworkManager network-manager-applet iwd pavucontrol gvfs gvfs-mtp nwg-look dunst polkit-gnome btop gcc gthumb zip unzip 7zip tar Thunar thunar-archive-plugin thunar-volman tumbler ffmpegthumbnailer ffmpeg mpv xarchiver geany cmus qbittorrent grim slurp neovim xorg-server-xwayland xdg-desktop-portal-wlr zathura zathura-cb zathura-pdf-poppler elogind dbus polkit steam unrar brillo mesa pipewire wireplumber yazi fzf opendoas mesa mesa-dri-32bit groff bc yt-dlp make xhost liberation-fonts-ttf google-fonts-ttf arc-icon-theme firefox zsh zsh-syntax-highlighting zsh-autosuggestions vulkan-loader mesa-vulkan-radeon mesa-vaapi mesa-vdpau mesa-vulkan-radeon-32bit vulkan-loader-32bit bleachbit
 
 echo "CLONING DOTFILES..."
-cd
+cd ~
 mkdir -p ~/Pictures
 git clone https://github.com/Peppereli/dotfilesvoid
 cd ~/dotfilesvoid
 rm -rf .git
-cp "." ~/
+cp -r "." ~/
 chmod +x ~/.config/sway/exit.sh
-cd
+chmod +x ~/.config/waybar/powermenu
+cd ~
 echo "CLEANING DOTFILES CLONE..."
-rm -rf ~/dotfilesvoid
+rm -rf dotfilesvoid
 
 echo "CLONING FONTS..."
 git clone https://github.com/Peppereli/fonts
@@ -47,12 +48,12 @@ xdg-mime default xarchiver.desktop application/x-xz
 xdg-mime default xarchiver.desktop application/x-rar
 xdg-mime default xarchiver.desktop application/x-7z-compressed
 
-xdg-mime default qimgv.desktop image/jpeg
-xdg-mime default qimgv.desktop image/png
-xdg-mime default qimgv.desktop image/gif
-xdg-mime default qimgv.desktop image/bmp
-xdg-mime default qimgv.desktop image/tiff
-xdg-mime default qimgv.desktop image/webp
+xdg-mime default gthumb.desktop image/jpeg
+xdg-mime default gthumb.desktop image/png
+xdg-mime default gthumb.desktop image/gif
+xdg-mime default gthumb.desktop image/bmp
+xdg-mime default gthumb.desktop image/tiff
+xdg-mime default gthumb.desktop image/webp
 
 xdg-mime default org.pwmt.zathura.desktop application/pdf
 xdg-mime default org.pwmt.zathura.desktop application/x-cbz
