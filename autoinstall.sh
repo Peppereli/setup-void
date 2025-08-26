@@ -1,9 +1,9 @@
 set -e
+
 echo "ADDING NON-FREE REPOSITORIES..."
 sudo xbps-install -S void-repo-nonfree void-repo-multilib-nonfree void-repo-multilib
-sudo xbps-install -Syu
 echo "INSTALLING PACKAGES..."
-sudo xbps-install -Sy sway swaylock swayidle swaybg alacritty Waybar fastfetch rofi curl flatpak NetworkManager network-manager-applet iwd pavucontrol gvfs gvfs-mtp nwg-look dunst polkit-gnome btop gcc gthumb zip unzip 7zip tar Thunar thunar-archive-plugin thunar-volman tumbler ffmpegthumbnailer ffmpeg mpv xarchiver geany cmus qbittorrent grim slurp neovim xorg-server-xwayland xdg-desktop-portal-wlr zathura zathura-cb zathura-pdf-poppler elogind dbus polkit steam unrar brillo pipewire wireplumber yazi fzf opendoas mesa mesa-dri-32bit groff bc yt-dlp make xhost liberation-fonts-ttf google-fonts-ttf arc-icon-theme firefox zsh zsh-syntax-highlighting zsh-autosuggestions vulkan-loader mesa-vulkan-radeon mesa-vaapi mesa-vdpau mesa-vulkan-radeon-32bit vulkan-loader-32bit bleachbit
+sudo xbps-install -Syu sway swaylock swayidle swaybg alacritty Waybar fastfetch rofi curl flatpak NetworkManager network-manager-applet iwd pavucontrol gvfs gvfs-mtp nwg-look dunst polkit-gnome btop gcc gthumb zip unzip 7zip tar Thunar thunar-archive-plugin thunar-volman tumbler ffmpegthumbnailer ffmpeg mpv xarchiver geany cmus qbittorrent grim slurp neovim xorg-server-xwayland xdg-desktop-portal-wlr zathura zathura-cb zathura-pdf-poppler elogind dbus polkit steam unrar brillo pipewire wireplumber yazi fzf opendoas mesa mesa-dri-32bit groff bc yt-dlp make xhost liberation-fonts-ttf google-fonts-ttf arc-icon-theme firefox zsh zsh-syntax-highlighting zsh-autosuggestions vulkan-loader mesa-vulkan-radeon mesa-vaapi mesa-vdpau mesa-vulkan-radeon-32bit vulkan-loader-32bit bleachbit
 
 echo "CLONING DOTFILES..."
 cd
@@ -18,25 +18,19 @@ cp -r "." ~/
 chmod +x ~/.config/sway/exit.sh
 chmod +x ~/.config/waybar/powermenu
 cd
-
 echo "CLEANING DOTFILES CLONE..."
 rm -rf dotfilesvoid
-
 echo "CLONING FONTS..."
 mkdir -p ~/.local/share/fonts
 git clone https://github.com/Peppereli/fonts
 cp -rf ~/fonts/* ~/.local/share/fonts/
-
 echo "UPDATING FONT CACHE..."
 fc-cache -f -v
-
 echo "CLEANING FONTS CLONE..."
 rm -rf ~/fonts
-
 echo "CLONING NVCHAD..."
 git clone https://github.com/NvChad/starter ~/.config/nvim
 echo "TO INSTALL NVCHAD RUN 'nvim' AND LET IT INSTALL THE PLUGINS"
-
 echo "CHANGING THE SHELL TO ZSH..."
 sudo chsh -s $(which zsh) $USER
 
@@ -97,8 +91,8 @@ xdg-mime default nvim.desktop text/csv
 xdg-mime default nvim.desktop application/yaml
 xdg-mime default nvim.desktop text/yaml
 xdg-mime default nvim.desktop text/x-log
-
 echo "ENABLING NEEDED SERVICES..."
+
 sudo ln -s /etc/sv/elogind /var/service
 sudo ln -s /etc/sv/dbus /var/service
 sudo mkdir -p /etc/pipewire/pipewire.conf.d
@@ -109,14 +103,18 @@ sudo ln -s /etc/sv/iwd /var/service
 sudo rm /var/service/wpa_supplicant
 sudo rm /var/service/udevd
 
-echo "REPLACING SUDO WITH DOAS AND REMOVING SUDO..."
-su -c '
-touch /etc/doas.conf
-echo "permit persist :wheel" >> /etc/doas.conf
-touch /etc/xbps.d/ignore.conf
-echo "ignorepkg=sudo" >> /etc/xbps.d/ignore.conf
-xbps-remove sudo
-'
-doas xbps-remove -oO
+#echo "REPLACING SUDO WITH DOAS AND REMOVING SUDO AND ENABLING fstrim..."
+#su -c 'bash -s' <<'EOF'
+#mkdir -p /etc/cron.weekly/
+#echo "#!/bin/sh" > /etc/cron.weekly/fstrim
+#echo "fstrim /" >> /etc/cron.weekly/fstrim
+#chmod +x /etc/cron.weekly/fstrim
+#echo "permit persist :wheel" > /etc/doas.conf
+#echo "ignorepkg=sudo" >> /etc/xbps.d/ignore.conf # Use >> to append
+#xbps-remove -y sudo
+#xbps-remove -oO
+#EOF
+
+sudo xbps-remove -oO
 echo "INSTALLATION FINISHED! TIME TO REBOOT!"
-doas reboot
+sudo reboot
