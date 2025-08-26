@@ -58,10 +58,10 @@ xdg-mime default org.pwmt.zathura.desktop application/x-cbz
 xdg-mime default org.pwmt.zathura.desktop application/x-cbr
 xdg-mime default thunar.desktop inode/directory
 gio mime inode/directory thunar.desktop
-xdg-mime default com.brave.Browser.desktop x-scheme-handler/http
-xdg-mime default com.brave.Browser.desktop x-scheme-handler/https
-xdg-mime default com.brave.Browser.desktop text/html
-xdg-mime default com.brave.Browser.desktop application/xhtml+xml
+xdg-mime default firefox.desktop x-scheme-handler/http
+xdg-mime default firefox.desktop x-scheme-handler/https
+xdg-mime default firefox.desktop text/html
+xdg-mime default firefox.desktop application/xhtml+xml
 xdg-mime default mpv.desktop video/mpeg
 xdg-mime default mpv.desktop video/mp4
 xdg-mime default mpv.desktop video/x-matroska
