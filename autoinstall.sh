@@ -1,8 +1,9 @@
+set -e
 echo "ADDING NON-FREE REPOSITORIES..."
 sudo xbps-install -S void-repo-nonfree void-repo-multilib-nonfree void-repo-multilib
 sudo xbps-install -Syu
 echo "INSTALLING PACKAGES..."
-sudo xbps-install -Sy sway swaylock swayidle swaybg alacritty Waybar fastfetch rofi curl flatpak NetworkManager network-manager-applet iwd pavucontrol gvfs gvfs-mtp nwg-look dunst polkit-gnome btop gcc gthumb zip unzip 7zip tar Thunar thunar-archive-plugin thunar-volman tumbler ffmpegthumbnailer ffmpeg mpv xarchiver geany cmus qbittorrent grim slurp neovim xorg-server-xwayland xdg-desktop-portal-wlr zathura zathura-cb zathura-pdf-poppler elogind dbus polkit steam unrar brillo mesa pipewire wireplumber yazi fzf opendoas mesa mesa-dri-32bit groff bc yt-dlp make xhost liberation-fonts-ttf google-fonts-ttf arc-icon-theme firefox zsh zsh-syntax-highlighting zsh-autosuggestions vulkan-loader mesa-vulkan-radeon mesa-vaapi mesa-vdpau mesa-vulkan-radeon-32bit vulkan-loader-32bit bleachbit
+sudo xbps-install -Sy sway swaylock swayidle swaybg alacritty Waybar fastfetch rofi curl flatpak NetworkManager network-manager-applet iwd pavucontrol gvfs gvfs-mtp nwg-look dunst polkit-gnome btop gcc gthumb zip unzip 7zip tar Thunar thunar-archive-plugin thunar-volman tumbler ffmpegthumbnailer ffmpeg mpv xarchiver geany cmus qbittorrent grim slurp neovim xorg-server-xwayland xdg-desktop-portal-wlr zathura zathura-cb zathura-pdf-poppler elogind dbus polkit steam unrar brillo pipewire wireplumber yazi fzf opendoas mesa mesa-dri-32bit groff bc yt-dlp make xhost liberation-fonts-ttf google-fonts-ttf arc-icon-theme firefox zsh zsh-syntax-highlighting zsh-autosuggestions vulkan-loader mesa-vulkan-radeon mesa-vaapi mesa-vdpau mesa-vulkan-radeon-32bit vulkan-loader-32bit bleachbit
 
 echo "CLONING DOTFILES..."
 cd
@@ -116,6 +117,6 @@ touch /etc/xbps.d/ignore.conf
 echo "ignorepkg=sudo" >> /etc/xbps.d/ignore.conf
 xbps-remove sudo
 '
-
+doas xbps-remove -oO
 echo "INSTALLATION FINISHED! TIME TO REBOOT!"
 doas reboot
