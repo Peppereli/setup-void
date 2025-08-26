@@ -3,7 +3,7 @@ set -e
 echo "ADDING NON-FREE REPOSITORIES..."
 sudo xbps-install -S void-repo-nonfree void-repo-multilib-nonfree void-repo-multilib
 echo "INSTALLING PACKAGES..."
-sudo xbps-install -Syu sway swaylock swayidle swaybg alacritty Waybar fastfetch rofi curl flatpak NetworkManager network-manager-applet iwd pavucontrol gvfs gvfs-mtp nwg-look dunst polkit-gnome btop gcc gthumb zip unzip 7zip tar Thunar thunar-archive-plugin thunar-volman tumbler ffmpegthumbnailer ffmpeg mpv xarchiver geany cmus qbittorrent grim slurp neovim xorg-server-xwayland xdg-desktop-portal-wlr zathura zathura-cb zathura-pdf-poppler elogind dbus polkit steam unrar brillo pipewire wireplumber yazi fzf opendoas mesa mesa-dri-32bit groff bc yt-dlp make xhost liberation-fonts-ttf google-fonts-ttf arc-icon-theme firefox zsh zsh-syntax-highlighting zsh-autosuggestions vulkan-loader mesa-vulkan-radeon mesa-vaapi mesa-vdpau mesa-vulkan-radeon-32bit vulkan-loader-32bit bleachbit
+sudo xbps-install -Syu sway swaylock swayidle swaybg alacritty Waybar fastfetch rofi curl flatpak NetworkManager network-manager-applet iwd pavucontrol gvfs gvfs-mtp nwg-look dunst polkit-gnome btop gcc gthumb zip unzip 7zip tar Thunar thunar-archive-plugin thunar-volman tumbler ffmpegthumbnailer ffmpeg mpv xarchiver geany cmus qbittorrent grim slurp neovim xorg-server-xwayland xdg-desktop-portal-wlr zathura zathura-cb zathura-pdf-poppler elogind dbus polkit steam unrar brillo pipewire wireplumber yazi fzf opendoas mesa mesa-dri-32bit groff bc yt-dlp make xhost liberation-fonts-ttf google-fonts-ttf arc-icon-theme firefox zsh zsh-syntax-highlighting zsh-autosuggestions vulkan-loader mesa-vulkan-radeon mesa-vaapi mesa-vdpau mesa-vulkan-radeon-32bit vulkan-loader-32bit bleachbit zramen
 
 echo "CLONING DOTFILES..."
 cd
@@ -100,6 +100,7 @@ sudo ln -s /usr/share/examples/wireplumber/10-wireplumber.conf /etc/pipewire/pip
 sudo ln -s /usr/share/examples/pipewire/20-pipewire-pulse.conf /etc/pipewire/pipewire.conf.d/
 sudo ln -s /etc/sv/NetworkManager /var/service
 sudo ln -s /etc/sv/iwd /var/service
+sudo ln -s /etc/sv/zramen /var/service/
 sudo rm /var/service/wpa_supplicant
 sudo rm /var/service/udevd
 
