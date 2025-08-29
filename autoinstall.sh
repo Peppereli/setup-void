@@ -105,6 +105,10 @@ sudo ln -s /etc/sv/zramen /var/service/
 sudo rm /var/service/wpa_supplicant
 sudo rm /var/service/udevd
 
+cd ~
+find . -type f \( -name "*.7z" -o -name "*.zip" -o -name "*.ms" -o -name "*.txt" -o -name "*.cpp" -o -name "*.c" -
+o -name "*.pdf" -o -name "*.tar" -o -name "*.rar" -o -name "*.tar.gz" \) -exec chmod -x {} \;
+find . -type f \( -name "*.mp4" -o -name "*.mkv" -o -name "*.avi" -o -name "*.mp3" -o -name "*.flac" -o -name "*.ogg" -name "*.wav" \) -exec chmod -x {} \;
 #echo "REPLACING SUDO WITH DOAS AND REMOVING SUDO AND ENABLING fstrim..."
 #su -c 'bash -s' <<'EOF'
 #mkdir -p /etc/cron.weekly/
