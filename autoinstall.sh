@@ -3,7 +3,7 @@ set -e
 echo "ADDING NON-FREE REPOSITORIES..."
 sudo xbps-install -S void-repo-nonfree void-repo-multilib-nonfree void-repo-multilib
 echo "INSTALLING PACKAGES..."
-sudo xbps-install -Syu sway swaylock swayidle swaybg foot gammastep Waybar fastfetch rofi curl flatpak NetworkManager network-manager-applet iwd pavucontrol gvfs gvfs-mtp nwg-look dunst polkit-gnome btop gcc gthumb zip unzip 7zip tar Thunar thunar-archive-plugin thunar-volman tumbler ffmpegthumbnailer ffmpeg mpv xarchiver quodlibet qbittorrent grim slurp neovim xorg-server-xwayland xdg-desktop-portal-wlr zathura zathura-cb zathura-pdf-poppler elogind dbus polkit unrar brillo pipewire wireplumber lf fzf opendoas mesa mesa-dri-32bit groff bc yt-dlp make xhost liberation-fonts-ttf google-fonts-ttf nerd-fonts-symbols-ttf arc-icon-theme firefox zsh zsh-syntax-highlighting zsh-autosuggestions vulkan-loader mesa-vulkan-radeon mesa-vaapi mesa-vdpau mesa-vulkan-radeon-32bit vulkan-loader-32bit bleachbit acpi wl-clipboard
+sudo xbps-install -Syu sway swaylock swayidle swaybg foot gammastep Waybar fastfetch rofi curl flatpak NetworkManager network-manager-applet iwd pavucontrol gvfs gvfs-mtp nwg-look dunst polkit-gnome btop gcc gthumb zip unzip 7zip tar Thunar thunar-archive-plugin thunar-volman tumbler ffmpegthumbnailer ffmpeg mpv xarchiver musikcube qbittorrent grim slurp neovim xorg-server-xwayland xdg-desktop-portal-wlr zathura zathura-cb zathura-pdf-poppler elogind dbus polkit unrar brillo pipewire wireplumber lf fzf opendoas mesa mesa-dri-32bit groff bc yt-dlp make xhost liberation-fonts-ttf google-fonts-ttf nerd-fonts-symbols-ttf arc-icon-theme firefox zsh zsh-syntax-highlighting zsh-autosuggestions vulkan-loader mesa-vulkan-radeon mesa-vaapi mesa-vdpau mesa-vulkan-radeon-32bit vulkan-loader-32bit bleachbit acpi wl-clipboard
 
 echo "CLONING NVCHAD..."
 git clone https://github.com/NvChad/starter ~/.config/nvim
@@ -21,6 +21,7 @@ rm -rf .git
 cp -r "." ~/
 chmod +x ~/.config/sway/exit.sh
 chmod +x ~/.config/waybar/powermenu
+chmod +x ~/.config/fetch
 cd
 echo "CLEANING DOTFILES CLONE..."
 rm -rf dotfilesvoid
@@ -120,7 +121,6 @@ find . -type f \( -name "*.mp4" -o -name "*.mkv" -o -name "*.avi" -o -name "*.mp
 #xbps-remove -y sudo
 #xbps-remove -oO
 #EOF
-
 sudo xbps-remove -oO
 echo "INSTALLATION FINISHED! TIME TO REBOOT!"
 sudo reboot
