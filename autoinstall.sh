@@ -123,4 +123,3 @@ find . -type f \( -name "*.mp4" -o -name "*.mkv" -o -name "*.avi" -o -name "*.mp
 #EOF
 sudo xbps-remove -oO
 echo "INSTALLATION FINISHED! TIME TO REBOOT!"
-sudo reboot
