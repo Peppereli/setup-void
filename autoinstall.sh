@@ -3,7 +3,7 @@ set -e
 echo "ADDING NON-FREE REPOSITORIES..."
 sudo xbps-install -S void-repo-nonfree void-repo-multilib-nonfree void-repo-multilib
 echo "INSTALLING PACKAGES..."
-sudo xbps-install -Syu sway swaylock swayidle swaybg foot gammastep Waybar rofi curl flatpak NetworkManager network-manager-applet iwd pavucontrol gvfs gvfs-mtp nwg-look dunst polkit-gnome btop gcc gthumb zip unzip 7zip tar Thunar thunar-archive-plugin thunar-volman tumbler ffmpegthumbnailer ffmpeg mpv xarchiver musikcube qbittorrent grim slurp neovim xorg-server-xwayland xdg-desktop-portal-wlr zathura zathura-cb zathura-pdf-poppler elogind dbus polkit unrar brillo pipewire wireplumber lf fzf opendoas mesa mesa-dri-32bit groff bc yt-dlp make xhost liberation-fonts-ttf google-fonts-ttf nerd-fonts-symbols-ttf arc-icon-theme firefox zsh zsh-syntax-highlighting zsh-autosuggestions vulkan-loader mesa-vulkan-radeon mesa-vaapi mesa-vdpau mesa-vulkan-radeon-32bit vulkan-loader-32bit bleachbit acpi wl-clipboard libadwaita
+sudo xbps-install -Syu sway swaylock swayidle swaybg foot gammastep Waybar rofi curl flatpak NetworkManager network-manager-applet iwd pavucontrol gvfs gvfs-mtp nwg-look dunst polkit-gnome btop gcc gthumb zip unzip 7zip tar Thunar thunar-archive-plugin thunar-volman tumbler ffmpegthumbnailer ffmpeg mpv xarchiver musikcube qbittorrent grim slurp neovim xorg-server-xwayland xdg-desktop-portal-wlr zathura zathura-cb zathura-pdf-poppler elogind dbus polkit unrar brillo pipewire wireplumber lf fzf opendoas mesa mesa-dri-32bit groff bc yt-dlp make xhost liberation-fonts-ttf google-fonts-ttf nerd-fonts-symbols-ttf arc-icon-theme firefox zsh zsh-syntax-highlighting zsh-autosuggestions vulkan-loader mesa-vulkan-radeon mesa-vaapi mesa-vdpau mesa-vulkan-radeon-32bit vulkan-loader-32bit bleachbit acpi wl-clipboard steam telegram-desktop wireshark-qt
 
 echo "CLONING NVCHAD..."
 git clone https://github.com/NvChad/starter ~/.config/nvim
@@ -25,14 +25,8 @@ chmod +x ~/.config/fetch
 cd
 echo "CLEANING DOTFILES CLONE..."
 rm -rf dotfilesvoid
-echo "CLONING FONTS..."
-mkdir -p ~/.local/share/fonts
-git clone https://github.com/Peppereli/fonts
-cp -rf ~/fonts/* ~/.local/share/fonts/
 echo "UPDATING FONT CACHE..."
 fc-cache -f -v
-echo "CLEANING FONTS CLONE..."
-rm -rf ~/fonts
 echo "CHANGING THE SHELL TO ZSH..."
 sudo chsh -s $(which zsh) $USER
 
@@ -106,11 +100,6 @@ sudo ln -s /etc/sv/zramen /var/service/
 sudo rm /var/service/wpa_supplicant
 sudo rm /var/service/udevd
 
-cd ~
-find . -type f \( -name "*.7z" -o -name "*.zip" -o -name "*.ms" -o -name "*.txt" -o -name "*.cpp" -o -name "*.c" -
-o -name "*.pdf" -o -name "*.tar" -o -name "*.rar" -o -name "*.tar.gz" \) -exec chmod -x {} \;
-find . -type f \( -name "*.mp4" -o -name "*.mkv" -o -name "*.avi" -o -name "*.mp3" -o -name "*.flac" -o -name "*.ogg" -o -name "*.wav" -o -name "*.webm" \) -exec chmod -x {} \;
-#echo "REPLACING SUDO WITH DOAS AND REMOVING SUDO AND ENABLING fstrim..."
 #su -c 'bash -s' <<'EOF'
 #mkdir -p /etc/cron.weekly/
 #echo "#!/bin/sh" > /etc/cron.weekly/fstrim
