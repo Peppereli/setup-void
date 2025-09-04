@@ -5,10 +5,6 @@ sudo xbps-install -S void-repo-nonfree void-repo-multilib-nonfree void-repo-mult
 echo "INSTALLING PACKAGES..."
 sudo xbps-install -Syu sway swaylock swayidle swaybg foot gammastep Waybar rofi curl flatpak NetworkManager network-manager-applet iwd pavucontrol gvfs gvfs-mtp nwg-look dunst polkit-gnome btop gcc gthumb zip unzip 7zip tar Thunar thunar-archive-plugin thunar-volman tumbler ffmpegthumbnailer ffmpeg mpv xarchiver musikcube qbittorrent grim slurp neovim xorg-server-xwayland xdg-desktop-portal-wlr zathura zathura-cb zathura-pdf-poppler elogind dbus polkit unrar brillo pipewire wireplumber lf fzf opendoas mesa mesa-dri-32bit groff bc yt-dlp make xhost liberation-fonts-ttf google-fonts-ttf nerd-fonts-symbols-ttf arc-icon-theme firefox zsh zsh-syntax-highlighting zsh-autosuggestions vulkan-loader mesa-vulkan-radeon mesa-vaapi mesa-vdpau mesa-vulkan-radeon-32bit vulkan-loader-32bit bleachbit acpi wl-clipboard steam telegram-desktop wireshark-qt
 
-echo "CLONING NVCHAD..."
-git clone https://github.com/NvChad/starter ~/.config/nvim
-echo "TO INSTALL NVCHAD RUN 'nvim' AND LET IT INSTALL THE PLUGINS"
-
 echo "CLONING DOTFILES..."
 cd
 mkdir -p ~/Pictures
