@@ -15,9 +15,6 @@ git clone https://github.com/Peppereli/dotfilesvoid
 cd ~/dotfilesvoid
 rm -rf .git
 cp -r "." ~/
-chmod +x ~/.config/sway/exit.sh
-chmod +x ~/.config/waybar/powermenu
-chmod +x ~/.config/fetch
 cd
 echo "CLEANING DOTFILES CLONE..."
 rm -rf dotfilesvoid
@@ -107,4 +104,10 @@ sudo rm /var/service/udevd
 #xbps-remove -oO
 #EOF
 sudo xbps-remove -oO
+cd
+find . -type f -print0 | xargs -0 chmod -x
+chmod +x ~/.config/sway/exit.sh
+chmod +x ~/.config/waybar/powermenu
+chmod +x ~/.config/fetch
+chmod +x ~/.config/sway/powermenu
 echo "INSTALLATION FINISHED! TIME TO REBOOT!"
