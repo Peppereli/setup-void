@@ -1,26 +1,23 @@
 set -e
-
-echo "ADDING NON-FREE REPOSITORIES..."
+cd
+echo "ADDING NON-FREE AND 32-BIT REPOS..."
 sudo xbps-install -S void-repo-nonfree void-repo-multilib-nonfree void-repo-multilib
 echo "INSTALLING PACKAGES..."
-sudo xbps-install -Syu sway swaylock swayidle swaybg foot gammastep Waybar rofi curl wget flatpak NetworkManager network-manager-applet iwd pulsemixer gvfs gvfs-mtp nwg-look dunst polkit-gnome btop gcc gthumb zip unzip 7zip tar Thunar thunar-archive-plugin thunar-volman tumbler ffmpegthumbnailer ffmpeg mpv xarchiver cmus qbittorrent grim slurp neovim xorg-server-xwayland xdg-desktop-portal-wlr zathura zathura-cb zathura-pdf-poppler elogind unrar brillo pipewire wireplumber lf opendoas mesa mesa-dri-32bit groff bc yt-dlp liberation-fonts-ttf noto-fonts-cjk noto-fonts-emoji noto-fonts-ttf noto-fonts-ttf-extra font-awesome firefox zsh zsh-syntax-highlighting zsh-autosuggestions vulkan-loader mesa-vulkan-radeon mesa-vaapi mesa-vdpau mesa-vulkan-radeon-32bit vulkan-loader-32bit acpi wl-clipboard steam telegram-desktop wireshark
+sudo xbps-install -Syu sway swaylock swayidle swaybg foot gammastep Waybar rofi fzf flatpak NetworkManager network-manager-applet iwd pulsemixer gvfs gvfs-mtp nwg-look dunst polkit-gnome btop gcc gthumb zip unzip 7zip tar Thunar thunar-archive-plugin thunar-volman tumbler ffmpegthumbnailer ffmpeg mpv xarchiver cmus qbittorrent grim slurp neovim xorg-server-xwayland xdg-desktop-portal-wlr zathura zathura-cb zathura-pdf-poppler elogind unrar brillo pipewire wireplumber lf opendoas mesa mesa-dri-32bit groff bc yt-dlp liberation-fonts-ttf noto-fonts-cjk noto-fonts-emoji noto-fonts-ttf noto-fonts-ttf-extra font-awesome firefox zsh zsh-syntax-highlighting zsh-autosuggestions vulkan-loader mesa-vulkan-radeon mesa-vaapi mesa-vdpau mesa-vulkan-radeon-32bit vulkan-loader-32bit acpi wl-clipboard steam telegram-desktop wireshark libreoffice-writer libreoffice-calc libreoffice-impress libreoffice-gnome upower rdfind
 
-echo "CLONING DOTFILES..."
-cd
+echo "SETTING UP DOTFILES..."
 mkdir -p ~/Pictures
 mkdir -p ~/Documents
 mkdir -p ~/movi
 mkdir -p ~/Music
 git clone https://github.com/Peppereli/dotfilesvoid
 cd ~/dotfilesvoid
-rm -rf .git
 cp -r "." ~/
 cd
-echo "CLEANING DOTFILES CLONE..."
-rm -rf dotfilesvoid
 echo "UPDATING FONT CACHE..."
 fc-cache -f -v
-echo "CHANGING THE SHELL TO ZSH..."
+
+echo "DEFAULTING TO ZSH..."
 sudo chsh -s $(which zsh) $USER
 
 echo "SETTING DEFAULT APPLICATIONS..."
@@ -80,8 +77,8 @@ xdg-mime default nvim.desktop text/csv
 xdg-mime default nvim.desktop application/yaml
 xdg-mime default nvim.desktop text/yaml
 xdg-mime default nvim.desktop text/x-log
-echo "ENABLING NEEDED SERVICES..."
 
+echo "ENABLING NEEDED SERVICES..."
 sudo ln -s /etc/sv/elogind /var/service
 sudo ln -s /etc/sv/dbus /var/service
 sudo mkdir -p /etc/pipewire/pipewire.conf.d
@@ -89,25 +86,24 @@ sudo ln -s /usr/share/examples/wireplumber/10-wireplumber.conf /etc/pipewire/pip
 sudo ln -s /usr/share/examples/pipewire/20-pipewire-pulse.conf /etc/pipewire/pipewire.conf.d/
 sudo ln -s /etc/sv/NetworkManager /var/service
 sudo ln -s /etc/sv/iwd /var/service
-sudo ln -s /etc/sv/zramen /var/service/
 sudo rm /var/service/wpa_supplicant
 sudo rm /var/service/udevd
 
-#su -c 'bash -s' <<'EOF'
-#mkdir -p /etc/cron.weekly/
-#echo "#!/bin/sh" > /etc/cron.weekly/fstrim
-#echo "fstrim /" >> /etc/cron.weekly/fstrim
-#chmod +x /etc/cron.weekly/fstrim
-#echo "permit persist :wheel" > /etc/doas.conf
-#echo "ignorepkg=sudo" >> /etc/xbps.d/ignore.conf # Use >> to append
-#xbps-remove -y sudo
-#xbps-remove -oO
-#EOF
-sudo xbps-remove -oO
+echo "CLEANING UP FILES..."
+rm -rf ~/.git
+cd ~/.config/
+rm -rf wofi
+rm -rf alacritty
+cd ~/.config/waybar/
+rm style
+rm config.bak
 cd
+sudo xbps-remove -oOO
+
+echo "MAKING NEEDED FILES EXECUTABLE..."
 find . -type f -print0 | xargs -0 chmod -x
 chmod +x ~/.config/sway/exit.sh
 chmod +x ~/.config/waybar/powermenu
 chmod +x ~/.config/fetch
 chmod +x ~/.config/sway/powermenu
-echo "INSTALLATION FINISHED! TIME TO REBOOT!"
+echo "INSTALLATION COMPLETE! PLEASE REBOOT THE SYSTEM..."
