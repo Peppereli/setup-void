@@ -3,7 +3,7 @@ cd
 echo "ADDING NON-FREE AND 32-BIT REPOS..."
 sudo xbps-install -S void-repo-nonfree void-repo-multilib-nonfree void-repo-multilib
 echo "INSTALLING PACKAGES..."
-sudo xbps-install -Syu sway swaylock swayidle swaybg foot gammastep Waybar rofi fzf flatpak NetworkManager network-manager-applet iwd pulsemixer gvfs gvfs-mtp nwg-look dunst polkit-gnome btop gcc gthumb zip unzip 7zip tar Thunar thunar-archive-plugin thunar-volman tumbler ffmpegthumbnailer ffmpeg mpv xarchiver cmus qbittorrent grim slurp neovim xorg-server-xwayland xdg-desktop-portal-wlr zathura zathura-cb zathura-pdf-poppler elogind unrar brillo pipewire wireplumber lf opendoas mesa mesa-dri-32bit groff bc yt-dlp liberation-fonts-ttf noto-fonts-cjk noto-fonts-emoji noto-fonts-ttf noto-fonts-ttf-extra font-awesome firefox zsh zsh-syntax-highlighting zsh-autosuggestions vulkan-loader mesa-vulkan-radeon mesa-vaapi mesa-vdpau mesa-vulkan-radeon-32bit vulkan-loader-32bit acpi wl-clipboard steam telegram-desktop wireshark libreoffice-writer libreoffice-calc libreoffice-impress libreoffice-gnome upower rdfind alsa-pipewire
+sudo xbps-install -Syu sway swaylock swayidle swaybg foot gammastep Waybar rofi fzf flatpak NetworkManager network-manager-applet iwd pulsemixer gvfs gvfs-mtp nwg-look dunst polkit-gnome btop gcc gthumb zip unzip 7zip tar Thunar thunar-archive-plugin thunar-volman tumbler ffmpegthumbnailer ffmpeg mpv xarchiver cmus qbittorrent grim slurp neovim xorg-server-xwayland xdg-desktop-portal-wlr zathura zathura-cb zathura-pdf-poppler elogind unrar brillo pipewire wireplumber lf opendoas mesa mesa-dri-32bit groff bc yt-dlp liberation-fonts-ttf noto-fonts-cjk noto-fonts-emoji noto-fonts-ttf noto-fonts-ttf-extra nerd-fonts-symbols-ttf firefox zsh zsh-syntax-highlighting zsh-autosuggestions vulkan-loader mesa-vulkan-radeon mesa-vaapi mesa-vdpau mesa-vulkan-radeon-32bit vulkan-loader-32bit acpi wl-clipboard steam telegram-desktop wireshark libreoffice-writer libreoffice-calc libreoffice-impress libreoffice-gnome upower rdfind alsa-pipewire tldr
 
 echo "SETTING UP DOTFILES..."
 mkdir -p ~/Pictures
@@ -28,13 +28,17 @@ xdg-mime default xarchiver.desktop application/x-bzip2
 xdg-mime default xarchiver.desktop application/x-xz
 xdg-mime default xarchiver.desktop application/x-rar
 xdg-mime default xarchiver.desktop application/x-7z-compressed
-xdg-mime default gthumb.desktop image/jpeg
-xdg-mime default gthumb.desktop image/png
-xdg-mime default gthumb.desktop image/gif
-xdg-mime default gthumb.desktop image/bmp
-xdg-mime default gthumb.desktop image/tiff
-xdg-mime default gthumb.desktop image/webp
+xdg-mime default org.gnome.gThumb.desktop image/jpeg
+xdg-mime default org.gnome.gThumb.desktop image/png
+xdg-mime default org.gnome.gThumb.desktop image/gif
+xdg-mime default org.gnome.gThumb.desktop image/bmp
+xdg-mime default org.gnome.gThumb.desktop image/tiff
+xdg-mime default org.gnome.gThumb.desktop image/webp
+xdg-mime default org.gnome.gThumb.desktop image/jpg
+xdg-mime default org.gnome.gThumb.desktop image/GIF
 xdg-mime default org.pwmt.zathura.desktop application/pdf
+xdg-mime default org.pwmt.zathura.desktop application/vnd.comicbook-rar
+xdg-mime default org.pwmt.zathura.desktop application/vnd.comicbook+zip
 xdg-mime default org.pwmt.zathura.desktop application/x-cbz
 xdg-mime default org.pwmt.zathura.desktop application/x-cbr
 xdg-mime default thunar.desktop inode/directory
@@ -97,9 +101,6 @@ rm -rf ~/.git
 cd ~/.config/
 rm -rf wofi
 rm -rf alacritty
-cd ~/.config/waybar/
-rm style
-rm config.bak
 cd
 sudo xbps-remove -oOO
 
