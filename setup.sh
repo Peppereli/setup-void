@@ -36,9 +36,6 @@ sudo rm /var/service/udevd
 
 echo "CLEANING UP FILES..."
 rm -rf ~/.git
-cd ~/.config/
-rm -rf wofi
-rm -rf alacritty
 cd
 sudo xbps-remove -oOO
 echo "MAKING NEEDED FILES EXECUTABLE..."
