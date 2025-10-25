@@ -43,6 +43,6 @@ echo "MAKING NEEDED FILES EXECUTABLE..."
 #find . -type f -print0 | xargs -0 chmod -x
 chmod +x ~/.config/sway/exit.sh
 chmod +x ~/.config/waybar/powermenu
-chmod +x ~/.config/fetch
+chmod +x ~/.config/bloatfetch
 chmod +x ~/.config/sway/powermenu
 echo "INSTALLATION COMPLETE! PLEASE REBOOT THE SYSTEM..."
